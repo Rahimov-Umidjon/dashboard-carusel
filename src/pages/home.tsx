@@ -6,25 +6,25 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 import {AnimatePresence , motion}  from "framer-motion";
 
-const data = {
-    title: "Olma",
-    weight: 1000,
-    price: "150 000 000 UZS",
-    from: "Moskva, Rossiya",
-    to: "Bar, Ukraina",
-    loadDate: "23.12.2025",
-    danger: 8,
-};
+// const data = {
+//     title: "Olma",
+//     weight: 1000,
+//     price: "150 000 000 UZS",
+//     from: "Moskva, Rossiya",
+//     to: "Bar, Ukraina",
+//     loadDate: "23.12.2025",
+//     danger: 8,
+// };
 
-interface Cargo {
-    id: number
-    title: string
-    // boshqa fieldlar
-}
+// interface Cargo {
+//     id: number
+//     title: string
+//     // boshqa fieldlar
+// }
 
-interface Props {
-    cargos: Cargo[]
-}
+// interface Props {
+//     cargos: Cargo[]
+// }
 
 const defaultCargos = [
     {
@@ -83,7 +83,7 @@ function Home() {
     const {user} = useAuth()
     console.log(user, 'home - 6')
     const [data, setData] = useState<any>(null)
-    const [cargos, setCargos] = useState<any>(defaultCargos)
+    const cargos= defaultCargos
 
 
     const [index, setIndex] = useState(0)
@@ -120,7 +120,7 @@ function Home() {
 
     return (
         <div className={'w-full h-screen bg-muted/80 overflow-y-scroll'}>
-            <Navbar email={'rahimovumidjon1402503@gmail.com'} phone={'+998931402503'}/>
+            <Navbar name={''} key={'5454'} profileImage={'df'}  onLogout={()=>console.log('bosildi')} email={'rahimovumidjon1402503@gmail.com'} phone={'+998931402503'}/>
             <div className="grid grid-cols-4   px-6 gap-6 ">
 
                 <div className={'col-span-3 '}>
@@ -155,7 +155,7 @@ function Home() {
                                 transition={{ duration: 0.6 }}
                                 className="grid grid-cols-1 md:grid-cols-2  "
                             >
-                                {visibleCargos?.map((cargo) => (
+                                {visibleCargos?.map((cargo:any) => (
                                     <div key={cargo.id} className="w-full">
                                         <CargoCard type={'vv'} {...cargo} />
                                     </div>
