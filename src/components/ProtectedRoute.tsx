@@ -6,13 +6,19 @@ import api from "@/API/axios.ts";
 
 const ProtectedRoute = ({children}: { children: ReactNode }) => {
     const {user , setUser , logout} = useAuth();
-    const token = localStorage.getItem("token")
+    const token = localStorage.getItem("token") || ''
     const getUser = async () => {
         try {
             const res = await api.get("/profile");
 
             console.log(res);
-            setUser(res.data);
+            const obj = {
+                user:{
+                    ...res.data
+                },
+                token:token
+            }
+            setUser(obj);
         } catch (error) {
             console.log(error);
             logout()

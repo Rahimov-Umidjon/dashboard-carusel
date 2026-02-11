@@ -120,7 +120,7 @@ function Home() {
 
     return (
         <div className={'w-full h-screen bg-muted/80 overflow-y-scroll'}>
-            <Navbar name={''} key={'5454'} profileImage={'df'}  onLogout={()=>console.log('bosildi')} email={'rahimovumidjon1402503@gmail.com'} phone={'+998931402503'}/>
+            <Navbar  />
             <div className="grid grid-cols-4   px-6 gap-6 ">
 
                 <div className={'col-span-3 '}>
