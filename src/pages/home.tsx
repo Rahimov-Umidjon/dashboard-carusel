@@ -135,7 +135,7 @@ function Home() {
                                 transition={{ duration: 0.6 }}
                                 className="grid grid-cols-1 md:grid-cols-2  "
                             >
-                                {visibleCargos?.map((cargo) => (
+                                {visibleCargos?.map((cargo:any) => (
                                     <div key={cargo.id} className="w-full">
                                         <CargoCard type={'TEZ'} {...cargo} />
                                     </div>

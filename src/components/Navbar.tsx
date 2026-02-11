@@ -7,14 +7,13 @@ interface NavbarProps {
     name: string;
     email: string;
     phone: string;
-    profileImage: string;
+    profileImage?: string;
     onLogout: () => void;
 }
  const Navbar =({
                                                name,
                                                email,
                                                phone,
-                                               profileImage,
                                                onLogout,
                                            }: NavbarProps)=> {
     return (

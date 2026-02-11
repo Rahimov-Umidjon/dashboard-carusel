@@ -2,7 +2,6 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Progress } from "@/components/ui/progress"
 import { Trophy, TrendingDown } from "lucide-react"
 
 interface Employee {
@@ -22,10 +21,8 @@ interface Props {
 export default function EmployeeStatistics({
                                                top,
                                                bottom,
-                                               generated_at,
                                            }: Props) {
 
-    const maxOperations = Math.max(...top.map(e => e.operations_count))
 
     return (
         <div className="w-full space-y-6 mt-6">
@@ -52,8 +49,7 @@ export default function EmployeeStatistics({
                 <CardContent className="space-y-4">
 
                     {top.slice(0, 5).map((employee, index) => {
-                        const percent =
-                            (employee.operations_count / maxOperations) * 100
+
 
                         return (
                             <div
@@ -73,6 +69,7 @@ export default function EmployeeStatistics({
                                                         : "bg-emerald-500"
                                         }`}
                                     >
+
                                         {/*#{index + 1}*/}
                                         <img className={'w-12 '} src="public/profile.png" alt="foto"/>
 
